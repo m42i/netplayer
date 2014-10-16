@@ -15,6 +15,7 @@ Put this inside your feeds.conf:
 
 - AirPlay support
 - custom LuCI interface
+- do not rely on libupnpp being pulled into upmpdcli source
 - volume control by control points
 - proper use of uClibc, currently libstdc++ is hard copied into the source path
 - smooth network integration using WPS

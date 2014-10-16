@@ -27,8 +27,11 @@ include $(INCLUDE_DIR)/package.mk
 CONFIGURE_ARGS= \
                 --host=$(REAL_GNU_TARGET_NAME)
 
+LIBUPNPP_PKG_NAME:=libupnpp-0.8.5.tar.gz
+LIBUPNPP_SOURCE:=http://www.lesbonscomptes.com/upmpdcli/downloads/$(LIBUPNPP_PKG_NAME)
 define Build/Configure
 	(cd $(PKG_BUILD_DIR); ./autogen.sh)
+	(cd $(PKG_BUILD_DIR); wget -c $(LIBUPNPP_SOURCE); mkdir -p libupnpp; tar xzf $(LIBUPNPP_PKG_NAME) -C libupnpp --strip 2)
 	$(call Build/Configure/Default, )
 endef
 
@@ -41,7 +44,7 @@ endef
 
 define Package/upmpdcli
   $(Package/upmpdcli/Default)
-  DEPENDS:= +libpthread +libcurl +libexpat +libupnp +libmpdclient
+  DEPENDS:= +libpthread +libcurl +libexpat +libupnpp +libmpdclient
 endef
 
 define Package/upmpdcli/description
