@@ -25,7 +25,7 @@ define Package/libupnpp
     SECTION:=libs
     CATEGORY:=Libraries
     URL:=https://github.com/medoc92/libupnpp
-    DEPENDS:=+libcurl +libexpat +libpthread +librt +uclibcxx +libupnp
+    DEPENDS:=+libcurl +libexpat +libpthread +librt +libupnp
 endef
 
 define Package/libupnpp/description
@@ -45,8 +45,13 @@ define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libupnpp*.so* $(1)/usr/lib/
 endef
 
+# Get and copy libstdc++ file into usr lib
+LIBSTDCXX_PKG:=libstdcpp_4.8-linaro-1_ar71xx.ipk
+LIBSTDCXX_PKG_URL:=http://downloads.openwrt.org/barrier_breaker/14.07/ar71xx/generic/packages/base/$(LIBSTDCXX_PKG)
 define Package/libupnpp/install
+    (cd $(BUILD_DIR); wget -c $(LIBSTDCXX_PKG_URL); tar xzf $(LIBSTDCXX_PKG) ./data.tar.gz; tar xzf data.tar.gz )
 	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(BUILD_DIR)/usr/lib/libstd* $(1)/usr/lib/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libupnpp*.so* \
 		$(1)/usr/lib/
 endef
