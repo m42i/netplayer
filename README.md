@@ -7,10 +7,13 @@ Put this inside your feeds.conf:
 
 `src-git netplayer https://github.com/m42i/netplayer.git`
 
+*Contains*:
+- [upmpdcli](http://upmpdcli/) for UPnP/[OpenHome](http://OpenHome) compatible
+  devices
+
 *TODO*:
 
 - AirPlay support
-- UPnP/OpenHome support
 - custom LuCI interface
 - volume control by control points
 - proper use of uClibc, currently libstdc++ is hard copied into the source path
