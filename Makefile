@@ -25,7 +25,7 @@ define Package/libupnpp
     SECTION:=libs
     CATEGORY:=Libraries
     URL:=https://github.com/medoc92/libupnpp
-    DEPENDS:=
+    DEPENDS:=+libcurl +libexpat +libpthread +librt +uclibcxx +libupnp
 endef
 
 define Package/libupnpp/description
@@ -42,14 +42,12 @@ define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/libupnpp $(1)/usr/include/
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libupnpp.so $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libupnpp*.so* $(1)/usr/lib/
 endef
 
 define Package/libupnpp/install
-	$(INSTALL_DIR) \
-		$(1)/usr/lib
-	$(CP) \
-		$(PKG_INSTALL_DIR)/usr/lib/libupnpp.so* \
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libupnpp*.so* \
 		$(1)/usr/lib/
 endef
 
