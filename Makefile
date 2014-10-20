@@ -55,6 +55,7 @@ endef
 define Package/upmpdcli/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/upmpdcli $(1)/usr/bin/
+	$(CP) ./files/* $(1)/
 endef
 
 
