@@ -54,8 +54,15 @@ endef
 
 define Package/upmpdcli/install
 	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_DIR) $(1)/etc/config
+	$(INSTALL_DIR) $(1)/usr/local/share
+
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/upmpdcli $(1)/usr/bin/
-	$(CP) ./files/* $(1)/
+	$(INSTALL_BIN) ./files/upmpdcli.init $(1)/etc/init.d/upmpdcli
+
+	$(INSTALL_DATA) ./files/upmpdcli.config $(1)/etc/config/upmpdcli
+	$(CP) ./files/usr/local/share/upmpdcli $(1)/usr/local/share/
 endef
 
 
