@@ -11,9 +11,12 @@ Put this inside your feeds.conf:
 - [upmpdcli](http://upmpdcli/) for UPnP/[OpenHome](http://OpenHome) compatible
   devices
 
+- [shairport-sync](http://shairport-sync) for AirPlay compatible devices
+  (currently hard copied from github.com/mikebrady/shairport-sync-for-openwrt 
+  because submodules don't work well with OpenWrt package feeds)
+
 *TODO*:
 
-- AirPlay support
 - custom LuCI interface
 - do not rely on libupnpp being pulled into upmpdcli source
 - volume control by control points
