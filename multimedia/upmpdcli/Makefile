@@ -36,8 +36,8 @@ define Build/Configure
 endef
 
 define Package/upmpdcli/Default
-  SECTION:=sound
-  CATEGORY:=Sound
+  SECTION:=multimedia
+  CATEGORY:=Multimedia
   TITLE:=UPnP Media Renderer front-end to MPD, the Music Player Daemon.
   URL:=http://www.lesbonscomptes.com/upmpdcli/upmpdcli.html
 endef
