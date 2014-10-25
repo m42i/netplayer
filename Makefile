@@ -20,7 +20,7 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 
 PKG_BUILD_PARALLEL:=1
 
-PKG_BUILD_DEPENDS:= +libcurl +libupnp +libmpdclient +libexpat
+PKG_BUILD_DEPENDS:= +libcurl +libupnpp +libmpdclient +libexpat
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -44,7 +44,7 @@ endef
 
 define Package/upmpdcli
   $(Package/upmpdcli/Default)
-  DEPENDS:= +libpthread +libcurl +libexpat +libupnpp +libmpdclient
+  DEPENDS:= +libpthread +libcurl +libexpat +libupnpp +mpd +libmpdclient
 endef
 
 define Package/upmpdcli/description
@@ -55,8 +55,6 @@ endef
 define Package/upmpdcli/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/upmpdcli $(1)/usr/bin/
-	$(INSTALL_DATA) ./files/config/upmpdcli $(1)/etc/config/
-	$(INSTALL_DATA) $(PKG_SOURCE_SUBDIR)/src/protocolinfo.txt $(1)/usr/share/upmpdcli/
 endef
 
 
