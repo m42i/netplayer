@@ -8,10 +8,10 @@ Put this inside your feeds.conf:
 `src-git netplayer https://github.com/m42i/netplayer.git`
 
 *Contains*:
-- [upmpdcli](http://upmpdcli/) for UPnP/[OpenHome](http://OpenHome) compatible
+- [upmpdcli](http://www.lesbonscomptes.com/upmpdcli/) for UPnP/[OpenHome](http://openhome.org/) compatible
   devices
 
-- [shairport-sync](http://shairport-sync) for AirPlay compatible devices
+- [shairport-sync](https://github.com/mikebrady/shairport-sync) for AirPlay compatible devices
   (currently hard copied from github.com/mikebrady/shairport-sync-for-openwrt 
   because submodules don't work well with OpenWrt package feeds)
 
