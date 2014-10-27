@@ -3,15 +3,15 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 
-
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=squeezelite
 PKG_VERSION:=75a72d5f86e1
 PKG_RELEASE:=1
+PKG_PROTO:=git
 
 PKG_SOURCE:=$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://squeezelite.googlecode.com/archive/
+PKG_SOURCE_URL:=https://code.google.com/p/squeezelite/
 
 TARGET_LDFLAGS += -lasound -lpthread -lm -lrt
 
