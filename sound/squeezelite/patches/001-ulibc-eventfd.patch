@@ -1,0 +1,53 @@
+--- a/main.c    2014-07-15 12:24:38.190723717 +0200
++++ b/main.c     2014-07-16 12:53:54.455872459 +0200
+@@ -111,6 +111,7 @@
+ #if EVENTFD
+ 	&quot; EVENTFD&quot;
+ #endif
++
+ #if SELFPIPE
+ 	&quot; SELFPIPE&quot;
+ #endif
+@@ -140,6 +141,23 @@
+ 	argv0);
+ }
+
++#if EVENTFD
++#if defined(__UCLIBC__)
++
++int
++eventfd_read(int fd, eventfd_t* value)
++{
++       return (read(fd, value, sizeof(*value)) == sizeof(*value)) ? 0 : -1;
++}
++
++int
++eventfd_write(int fd, eventfd_t value)
++{
++       return (write(fd, &amp;value, sizeof(value)) == sizeof(value)) ? 0 : -1;
++}
++#endif
++#endif
++
+ static void license(void) {
+    printf(TITLE &quot;\n\n&quot;
+    &quot;This program is free software: you can redistribute it and/or modify\n&quot;
+--- a/squeezelite.h     2014-07-15 12:24:38.190723717 +0200
++++ b/squeezelite.h      2014-07-16 12:52:43.575578071 +0200
+@@ -226,6 +226,16 @@
+ typedef int32_t   s32_t;
+ typedef int64_t   s64_t;
+
++#if EVENTFD
++#if defined(__UCLIBC__)
++__BEGIN_DECLS
++typedef uint64_t eventfd_t;
++extern int eventfd_read (int __fd, eventfd_t *__value);
++extern int eventfd_write (int __fd, eventfd_t __value);
++__END_DECLS
++#endif
++#endif
++
+ #define mutex_type pthread_mutex_t
+ #define mutex_create(m) pthread_mutex_init(&amp;m, NULL)
+ #define mutex_create_p(m) pthread_mutexattr_t attr; pthread_mutexattr_init(&amp;attr); pthread_mutexattr_setprotocol(&amp;attr, PTHREAD_PRIO_INHERIT); pthread_mutex_init(&amp;m, &amp;attr); pthread_mutexattr_destroy(&amp;attr)
