@@ -15,6 +15,8 @@ Put this inside your feeds.conf:
   (currently hard copied from github.com/mikebrady/shairport-sync-for-openwrt 
   because submodules don't work well with OpenWrt package feeds)
 
+- [squeezelite](https://code.google.com/p/squeezelite/) for [Logitech Media Server](http://wiki.slimdevices.com/index.php/Logitech_Media_Server)
+
 *TODO*:
 
 - custom LuCI interface
@@ -22,4 +24,3 @@ Put this inside your feeds.conf:
 - volume control by control points
 - proper use of uClibc, currently libstdc++ is hard copied into the source path
 - smooth network integration using WPS
-- squeezelite
