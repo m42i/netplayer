@@ -2,11 +2,11 @@
 +++ b/main.c     2014-07-16 12:53:54.455872459 +0200
 @@ -111,6 +111,7 @@
  #if EVENTFD
- 	&quot; EVENTFD&quot;
+ 	" EVENTFD"
  #endif
 +
  #if SELFPIPE
- 	&quot; SELFPIPE&quot;
+ 	" SELFPIPE"
  #endif
 @@ -140,6 +141,23 @@
  	argv0);
@@ -24,14 +24,14 @@
 +int
 +eventfd_write(int fd, eventfd_t value)
 +{
-+       return (write(fd, &amp;value, sizeof(value)) == sizeof(value)) ? 0 : -1;
++       return (write(fd, &value, sizeof(value)) == sizeof(value)) ? 0 : -1;
 +}
 +#endif
 +#endif
 +
  static void license(void) {
-    printf(TITLE &quot;\n\n&quot;
-    &quot;This program is free software: you can redistribute it and/or modify\n&quot;
+    printf(TITLE "\n\n"
+    "This program is free software: you can redistribute it and/or modify\n"
 --- a/squeezelite.h     2014-07-15 12:24:38.190723717 +0200
 +++ b/squeezelite.h      2014-07-16 12:52:43.575578071 +0200
 @@ -226,6 +226,16 @@
@@ -49,5 +49,5 @@
 +#endif
 +
  #define mutex_type pthread_mutex_t
- #define mutex_create(m) pthread_mutex_init(&amp;m, NULL)
- #define mutex_create_p(m) pthread_mutexattr_t attr; pthread_mutexattr_init(&amp;attr); pthread_mutexattr_setprotocol(&amp;attr, PTHREAD_PRIO_INHERIT); pthread_mutex_init(&amp;m, &amp;attr); pthread_mutexattr_destroy(&amp;attr)
+ #define mutex_create(m) pthread_mutex_init(&m, NULL)
+ #define mutex_create_p(m) pthread_mutexattr_t attr; pthread_mutexattr_init(&attr); pthread_mutexattr_setprotocol(&attr, PTHREAD_PRIO_INHERIT); pthread_mutex_init(&m, &attr); pthread_mutexattr_destroy(&attr)

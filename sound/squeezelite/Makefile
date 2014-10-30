@@ -22,7 +22,8 @@ define Package/squeezelite
 	CATEGORY:=Sound
 	TITLE:=lightweight headless squeezebox emulator
 	URL:=http://www.squeezelite/
-	DEPENDS:= +AUDIO_SUPPORT:alsa-lib +libvorbis +libflac +libfaad2 +libffmpeg +libpthread
+	DEPENDS:= +AUDIO_SUPPORT:alsa-lib +libvorbis +libflac \
+		+libfaad2 +libffmpeg +libpthread +libmad
 endef
 
 define Package/squeezelite/description
@@ -31,7 +32,9 @@ endef
 
 define Package/squeezelite/install
 	$(INSTALL_DIR) $(1)/usr/bin/
+
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/$(PKG_NAME) $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,squeezelite))
+
