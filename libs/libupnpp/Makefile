@@ -8,13 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libupnpp
-PKG_VERSION:=0.8.5
+PKG_VERSION:=0.12.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.lesbonscomptes.com/upmpdcli/downloads
-#PKG_SOURCE_URL:=@SF/musicpd/files/libupnpp/$(PKG_VERSION)
-PKG_MD5SUM:=613b87999f6c8ce7f07bf2420fea1ddf
+PKG_MD5SUM:=c8472f91a4e08595cd104b5c9fb82eab
 
 PKG_INSTALL:=1
 
